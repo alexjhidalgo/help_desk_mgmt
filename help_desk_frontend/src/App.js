@@ -9,13 +9,13 @@ function App() {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3005/tickets')
+    axios.get('/tickets')
       .then((response) => setTickets(response.data))
       .catch((error) => console.error('Error fetching tickets:', error));
   }, []);
 
   const submitTicket = (name, email, description) => {
-    axios.post('http://localhost:3005/submit-ticket', { name, email, description })
+    axios.post('/submit-ticket', { name, email, description })
       .then((response) => setTickets([...tickets, response.data]))
       .catch((error) => console.error('Error submitting ticket:', error));
   };

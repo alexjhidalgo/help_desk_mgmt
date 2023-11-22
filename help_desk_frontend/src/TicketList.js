@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const TicketList = ({ tickets, updateTicketStatus}) => {
     const handleStatusUpdate = (id, status) => {
-        axios.put(`http://localhost:3005/update-ticket/${id}`, {status})
+        axios.put(`/update-ticket/${id}`, {status})
         .then((response) => {
             updateTicketStatus(response.data);
         })
